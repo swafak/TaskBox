@@ -23,18 +23,16 @@
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="TASK BOX"
-
+        app:title="TASK BOX">
+        <include layout="@layout/custom_toolbar"
      />
+    </androidx.appcompat.widget.Toolbar>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBaseline_toBottomOf="@id/toolbar"
-
-
-
         >
         <EditText
             android:id="@+id/editText"
