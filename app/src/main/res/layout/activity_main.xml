@@ -11,28 +11,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBaseline_toBottomOf="parent"
         app:layout_constraintBaseline_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="200dp"
+           android:src="@drawable/taskboxlogo">
+
+       </ImageView>
 
         <View
             android:layout_width="wrap_content"
-            android:layout_height="30dp">
+            android:layout_height="30dp"
+            android:id="@+id/viewsize">
 
         </View>
+        <ProgressBar
+            android:id="@+id/spinner"
+            app:layout_constraintTop_toBottomOf="@id/viewsize"
+            android:layout_gravity="center"
 
-        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ProgressBar
-                android:id="@+id/spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:indeterminate="true"
-                android:visibility="visible" />
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="visible" />
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
