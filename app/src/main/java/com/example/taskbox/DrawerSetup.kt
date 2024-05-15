@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import com.example.taskbox.Screen.ReminderScreen
 import com.example.taskbox.Screen.TaskScreen
 import com.google.android.material.navigation.NavigationView
 
@@ -21,6 +22,8 @@ fun AppCompatActivity.DrawerSetup(navViewId: Int, drawerLayoutId: Int) {
     navView.setNavigationItemSelectedListener { menuItem ->
         when (menuItem.itemId) {
             R.id.nav_todolist -> startActivity(Intent(this, TaskScreen::class.java))
+            R.id.nav_reminder -> startActivity(Intent(this, ReminderScreen::class.java))
+
 
 
         }

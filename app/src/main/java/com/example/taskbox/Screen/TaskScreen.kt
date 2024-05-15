@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskbox.Adapters.TaskListAdapter
 import com.example.taskbox.Data.Task
+import com.example.taskbox.DrawerSetup
 import com.example.taskbox.R
 
 class TaskScreen: AppCompatActivity() {
@@ -30,6 +31,8 @@ class TaskScreen: AppCompatActivity() {
             drawerLayout.openDrawer(GravityCompat.START)
 
         }
+
+        DrawerSetup(R.id.nav_view, R.id.drawerLayout)
 
         adapter = TaskListAdapter(tasks)
 
