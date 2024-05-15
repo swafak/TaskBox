@@ -3,8 +3,11 @@ package com.example.taskbox.Screen
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskbox.Adapters.TaskListAdapter
@@ -19,6 +22,14 @@ class TaskScreen: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task)
+
+        val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
+
+        val menuButton = findViewById<ImageView>(R.id.menuButton)
+        menuButton.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+
+        }
 
         adapter = TaskListAdapter(tasks)
 
