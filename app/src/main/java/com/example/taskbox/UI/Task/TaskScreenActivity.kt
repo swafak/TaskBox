@@ -56,6 +56,8 @@ class TaskScreenActivity: AppCompatActivity() {
             val taskName = TaskEdit.text.toString().trim()
             if (taskName.isNotEmpty()) {
                 viewModel.addTask(taskName)
+                Toast.makeText(this, "Task added", Toast.LENGTH_SHORT).show()
+
 //                adapter.notifyDataSetChanged()
                 TaskEdit.text.clear()
             } else {

@@ -7,7 +7,7 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.taskbox.Adapters.TaskListAdapter
 import com.example.taskbox.Data.Task
-import com.example.taskbox.UI.Task.TaskScreenActivity
+import com.example.taskbox.UI.Login.LoginActivity
 import com.example.taskbox.Utils.SPLASH_DELAY
 
 
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         spinner.visibility = ProgressBar.VISIBLE
 
         Handler().postDelayed({
-            val intent = Intent(this, TaskScreenActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }, SPLASH_DELAY)

@@ -16,6 +16,8 @@
         <activity android:name=".UI.Task.TaskScreenActivity"></activity>
         <activity android:name=".UI.Reminders.ReminderScreen"></activity>
         <activity android:name=".UI.Reminders.AddReminderScreen"></activity>
+        <activity android:name=".UI.Login.LoginActivity"></activity>
+        <activity android:name=".UI.Register.RegisterActivity"></activity>
 
         <activity
             android:name=".MainActivity"
