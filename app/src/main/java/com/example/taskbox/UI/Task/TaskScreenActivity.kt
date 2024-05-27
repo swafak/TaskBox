@@ -1,4 +1,4 @@
-package com.example.taskbox.Screen
+package com.example.taskbox.UI.Task
 
 import android.os.Bundle
 import android.widget.Button
@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskbox.Adapters.TaskListAdapter
@@ -15,14 +16,18 @@ import com.example.taskbox.Data.Task
 import com.example.taskbox.DrawerSetup
 import com.example.taskbox.R
 
-class TaskScreen: AppCompatActivity() {
+class TaskScreenActivity: AppCompatActivity() {
 
-    private val tasks = ArrayList<Task>()
+//    private val tasks = ArrayList<Task>()
     private lateinit var adapter: TaskListAdapter
+
+    private lateinit var viewModel: TaskViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task)
+
+        viewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
 
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
 
@@ -34,7 +39,8 @@ class TaskScreen: AppCompatActivity() {
 
         DrawerSetup(R.id.nav_view, R.id.drawerLayout)
 
-        adapter = TaskListAdapter(tasks)
+        adapter = TaskListAdapter(viewModel.tasks.value ?: ArrayList())
+//        adapter = TaskListAdapter(tasks)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
@@ -49,8 +55,8 @@ class TaskScreen: AppCompatActivity() {
 
             val taskName = TaskEdit.text.toString().trim()
             if (taskName.isNotEmpty()) {
-                tasks.add(Task(taskName, false))
-                adapter.notifyDataSetChanged()
+                viewModel.addTask(taskName)
+//                adapter.notifyDataSetChanged()
                 TaskEdit.text.clear()
             } else {
                 Toast.makeText(this, "Please enter a task", Toast.LENGTH_SHORT).show()
@@ -60,14 +66,11 @@ class TaskScreen: AppCompatActivity() {
         val clearButton = findViewById<Button>(R.id.clearButton)
 
         clearButton.setOnClickListener {
-            val iterator = tasks.iterator()
-            while (iterator.hasNext()) {
-                val task = iterator.next()
-                if (task.isChecked) {
-                    iterator.remove()
-                }
-            }
-            adapter.notifyDataSetChanged()
+            viewModel.removeCheckedTasks()
+        }
+
+        viewModel.tasks.observe(this) { tasks ->
+            adapter.updateTasks(tasks)
         }
     }
 }

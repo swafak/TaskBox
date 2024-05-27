@@ -3,6 +3,13 @@ package com.example.taskbox.Data
 data class Task(
     val name: String,
     var isChecked: Boolean,
-    var Details: String,
-    var DueDate: String,
+
+
     )
+
+data class Reminder (
+    val name: String,
+    val Details: String,
+    val DueDate: String,
+
+)

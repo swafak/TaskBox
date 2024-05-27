@@ -13,9 +13,9 @@
         android:theme="@style/Theme.TaskBox"
         tools:targetApi="31">
 
-        <activity android:name=".Screen.TaskScreen"></activity>
-        <activity android:name=".Screen.ReminderScreen"></activity>
-        <activity android:name=".Screen.AddReminderScreen"></activity>
+        <activity android:name=".UI.Task.TaskScreenActivity"></activity>
+        <activity android:name=".UI.Reminders.ReminderScreen"></activity>
+        <activity android:name=".UI.Reminders.AddReminderScreen"></activity>
 
         <activity
             android:name=".MainActivity"

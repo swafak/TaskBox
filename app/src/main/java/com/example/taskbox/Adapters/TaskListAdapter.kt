@@ -9,10 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.taskbox.Data.Task
 import com.example.taskbox.R
 
-
-
-
-
 class TaskListAdapter(private val taskList: ArrayList<Task>) :
     RecyclerView.Adapter<TaskListAdapter.TaskViewHolder>() {
 
@@ -38,5 +34,10 @@ class TaskListAdapter(private val taskList: ArrayList<Task>) :
     override fun getItemCount(): Int {
         return taskList.size
     }
+    fun updateTasks(newTasks: ArrayList<Task>) {
+        taskList.clear()
+        taskList.addAll(newTasks)
+        notifyDataSetChanged()
+        }
 }
 

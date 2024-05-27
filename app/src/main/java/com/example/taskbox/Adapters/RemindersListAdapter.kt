@@ -4,15 +4,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.taskbox.Data.Reminder
 import com.example.taskbox.Data.Task
 
-
-    class RemindersListAdapter(private val taskList: List<Task>) :
+    class RemindersListAdapter(private val taskList: List<Reminder>) :
         RecyclerView.Adapter<RemindersListAdapter.TaskViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
             val itemView = LayoutInflater.from(parent.context)
-                .inflate(com.example.taskbox.R.layout.remi_list_rec, parent, false)
+                .inflate(com.example.taskbox.R.layout.remi_list_rec,
+                    parent,
+                    false)
             return TaskViewHolder(itemView)
         }
 

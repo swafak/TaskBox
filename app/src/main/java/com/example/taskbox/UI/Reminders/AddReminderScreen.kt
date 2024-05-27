@@ -1,18 +1,20 @@
-package com.example.taskbox.Screen
+package com.example.taskbox.UI.Reminders
 
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.taskbox.DrawerSetup
 import com.example.taskbox.R
 
-class ReminderScreen: AppCompatActivity() {
+class AddReminderScreen: AppCompatActivity() {
 
 
-   override fun onCreate(savedInstanceState: Bundle?) {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_reminders)
+        setContentView(R.layout.add_task)
 
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
 
@@ -21,5 +23,6 @@ class ReminderScreen: AppCompatActivity() {
             drawerLayout.openDrawer(GravityCompat.START)
 
         }
+        DrawerSetup(R.id.nav_view, R.id.drawerLayout)
     }
 }
