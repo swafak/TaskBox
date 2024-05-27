@@ -3,6 +3,7 @@ package com.example.taskbox.UI.Login
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.view.View
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.taskbox.R
@@ -25,6 +26,13 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
+    fun startRegisterActivity(view: View) {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+}
+
 }
 
 

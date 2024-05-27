@@ -1,10 +1,11 @@
-package com.example.taskbox.UI.Login
+package com.example.taskbox.UI.Register
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.taskbox.R
+import com.example.taskbox.UI.Login.LoginActivity
 import com.example.taskbox.UI.Task.TaskScreenActivity
 import com.google.android.material.button.MaterialButton
 
