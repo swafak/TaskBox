@@ -147,13 +147,7 @@
                 android:onClick="startLoginActivity"
                 android:textColor="@color/primary_color"
                 />
-
         </LinearLayout>
-
-
-
     </androidx.cardview.widget.CardView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 
