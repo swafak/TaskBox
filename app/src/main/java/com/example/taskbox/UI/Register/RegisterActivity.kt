@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.taskbox.R
 import com.example.taskbox.UI.Login.LoginActivity
-import com.example.taskbox.UI.Task.TaskScreenActivity
+
 import com.google.android.material.button.MaterialButton
 
 
@@ -20,7 +20,7 @@ class RegisterActivity : AppCompatActivity() {
 
         val startButton = findViewById<MaterialButton>(R.id.register_btn)
         startButton.setOnClickListener {
-            val Intent = Intent (this, TaskScreenActivity::class.java)
+            val Intent = Intent (this, LoginActivity::class.java)
             startActivity(Intent)
         }
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/general_navigation"
+    app:startDestination="@id/nav_todolist">
+
+        <fragment
+            android:id="@+id/nav_todolist"
+            android:name="com.example.taskbox.UI.ToDoList.TodoListFragment"
+            android:label="@string/ToDoList"
+            tools:layout="@layout/fragment_todo_list" />
+        <fragment
+            android:id="@+id/nav_reminder"
+            android:name="com.example.taskbox.UI.Reminders.ReminderFragment"
+            android:label="@string/Reminders"
+            tools:layout="@layout/fragment_reminder" />
+        <fragment
+                android:id="@+id/nav_add_reminder"
+                android:name="com.example.taskbox.UI.Reminders.AddReminderFragment"
+                android:label="@string/Add_Reminders"
+                tools:layout="@layout/fragment_add_reminder">
+                <action
+                    android:id="@+id/action_addReminder_to_todolist"
+                    app:destination="@id/nav_todolist" />
+        </fragment>
+</navigation>

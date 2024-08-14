@@ -1,36 +1,35 @@
 package com.example.taskbox
 
-import android.content.Intent
-import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import com.example.taskbox.UI.Reminders.ReminderScreen
-import com.example.taskbox.UI.Task.TaskScreenActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import com.example.taskbox.R.id.nav_host_fragment
 import com.google.android.material.navigation.NavigationView
 
 fun AppCompatActivity.DrawerSetup(navViewId: Int, drawerLayoutId: Int) {
     val drawerLayout: androidx.drawerlayout.widget.DrawerLayout = findViewById(drawerLayoutId)
     val navView: NavigationView = findViewById(navViewId)
 
-    val toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
-    drawerLayout.addDrawerListener(toggle)
-    toggle.syncState()
+    val navController = findNavController(nav_host_fragment)
+    val appBarConfiguration = AppBarConfiguration(
+        setOf(R.id.nav_todolist, R.id.nav_reminder), drawerLayout
+    )
 
-    supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    // Setup ActionBar with NavigationUI
+    NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+    NavigationUI.setupWithNavController(navView, navController)
 
     navView.setNavigationItemSelectedListener { menuItem ->
-        when (menuItem.itemId) {
-            R.id.nav_todolist -> startActivity(Intent(this, TaskScreenActivity::class.java))
-            R.id.nav_reminder -> startActivity(Intent(this, ReminderScreen::class.java))
-
-
-
-        }
+        navController.navigate(menuItem.itemId)
         drawerLayout.closeDrawer(GravityCompat.START)
         true
     }
 }
-fun AppCompatActivity.showToast(message: String) {
-    Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
-}
+//
+//override fun onSupportNavigateUp(): Boolean {
+//    val navController = findNavController(nav_host_fragment)
+//    return navController.navigateUp() || super.onSupportNavigateUp()
+//}

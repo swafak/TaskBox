@@ -35,6 +35,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding = true
+    }
 
     kotlinOptions {
         jvmTarget = "1.8"
@@ -45,7 +48,16 @@ dependencies {
 
 
 
-        val lifecycle_version = "2.8.0"
+        implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.fragment.ktx)
+
+    implementation("androidx.room:room-runtime:2.4.3")
+    implementation("androidx.room:room-ktx:2.4.3")
+    kapt("androidx.room:room-compiler:2.4.3")
+
+    val lifecycle_version = "2.8.0"
         val arch_version = "2.2.0"
 
         // ViewModel
